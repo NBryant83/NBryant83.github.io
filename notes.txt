@@ -1,15 +1,24 @@
-User Stories:
-- Player and computer each get 7 cards, rest of deck is faced down in pile
-- Player asks for a card they have in their possesion for matching
-    - if computer does not have it, player picks up a card from the deck
-        - if player gets requested card, they may request another
-        - if player gets any other card, it is the computer's turn
-    - if computer does have it, player gets it/them and gets another turn
+
+
+
 
 MVP
 ===================================================================================
 STRETCH
 
+
+
+
 Javascript
 states to track
-- 
+- initial load screen
+    - how many cards and matches exist
+- player requesting card
+- player getting card from fishpile
+- player getting card from computer
+- player adding card to hand
+- computer requesting card
+- computer getting card from fishpile
+- computer getting card from player
+- player win screen
+- computer win screen
