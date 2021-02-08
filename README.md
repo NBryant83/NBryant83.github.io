@@ -1,4 +1,4 @@
-# P1-Go-Fish
+# P1-Emoji-Fish
 ## Purpose of the game
 Beat the computer at my rendition of Go Fish! The object of the game is to be the first one to be finished making matches, (4 of any card is an automatic match.), with the cards in your possession once the cards in the deck, the fishpile, is empty.
 ### Instructions
