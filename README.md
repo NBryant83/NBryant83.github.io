@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # P1 Emoji Fish
 
 ## Overview
@@ -29,5 +30,4 @@ Goals:
 
 MVP
 ===================================================================================
-STRETCH
-When I click on one of my emojis, the emoji (does something visually distinctive)
+Stretch
