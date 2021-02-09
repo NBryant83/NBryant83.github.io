@@ -13,26 +13,22 @@
         <h1>Go Fish</h1>
         <div id="center-div">
             <form>
-                <input type="textbox" placeholder="Fishpile" alt="fishpile">
-                <input type="submit" value="New Hand" alt="New Hand">
+                <input type="textbox" id="fishbowl" placeholder="Fishbowl" alt="fishbowl">
+                <input type="submit" id="reset" value="Reset" alt="Reset">
             </form>
-            <div id="top-div">
-                <p>'Instructions and Card Display'(top-div)</p>
-            </div>
-            <div id="bot-div">
-                <div>'Console Messages'(bot-div)</div>
+            <div id="messages">
+                <div>'Console Messages'</div>
             </div>
     </main>
     </div>
-    <section id="left-section">
-        <article id="tleft">'Top Left section, "Player's matched cards" '(tleft)</article>
-        <article id="bleft">'Bottom left section, "Player's cards to be played" '(bleft)</article>
-    </section>
-    <section id="right-section">
-        <article id="tright">'Top right section, " Computer's matched cards" '(tright)</article>
-        <article id="bright">'Bottom left section, "Computer's cards to be played" '(bright)</article>
-    </section>
-
+    <div class="side-sections">
+        <section id="left-section">
+            <article>'left section, "Player's emojis" '</article>
+        </section>
+        <section id="right-section">
+            <article>'right section, "Computer's emojis" '</article>
+        </section>
+    </div>
 </body>
 
 </html>

@@ -1,3 +1,7 @@
-body {
+main {
     text-align: center;
+}
+
+.side-sections {
+    display: flex;
 }
