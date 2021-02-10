@@ -2,6 +2,24 @@ main {
     text-align: center;
 }
 
+#messages {
+    display: flex;
+    justify-content: center;
+    border: 1px solid mediumorchid;
+    width: 100%;
+}
+
 .side-sections {
     display: flex;
+    height: 400px;
+    justify-content: space-between;
+}
+
+div {
+    border: 1px solid pink;
+}
+
+#human-match-pile,
+#ai-match-pile {
+    height: 150px;
 }

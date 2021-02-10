@@ -5,28 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script defer src="app.js"></script>
-    <Title>Go Fish</Title>
+    <Title>Emoji Fish</Title>
 </head>
 
 <body>
     <main>
-        <h1>Go Fish</h1>
+        <h1>Emoji Fish</h1>
         <div id="center-div">
-            <form>
-                <input type="textbox" id="fishbowl" placeholder="Fishbowl" alt="fishbowl">
-                <input type="submit" id="reset" value="Reset" alt="Reset">
-            </form>
-            <div id="messages">
-                <div>'Console Messages'</div>
-            </div>
+            <div id="fishbowl"></div>
+            <input type="submit" id="reset" value="Start">
     </main>
     </div>
     <div class="side-sections">
-        <section id="left-section">
-            <article>'left section, "Player's emojis" '</article>
+        <section>
+            <div id="human-match-pile"> 'left section, "Player's emojis" '</div>
+            <div id="human-hand"></div>
         </section>
-        <section id="right-section">
-            <article>'right section, "Computer's emojis" '</article>
+        <div id="messages">
+            <div>'Console Messages'</div>
+        </div>
+        <section>
+            <div id="ai-match-pile">'right section, "Computer's emojis" '</div>
+            <div id="ai-hand"></div>
         </section>
     </div>
 </body>
