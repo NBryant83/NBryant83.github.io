@@ -212,14 +212,13 @@ const aiTurn = () => {
 // take from humanHand 
 // add to aiHand
 const humanHandGive = () => {
-    let giveToAi =
-
+    let giveToAi = humanHand.pop()
 }
 
 
 // Function to have emoji move from aiHandEl to humanHandEl
 const aiHandGive = () => {
-    let giveToHuman =
+    let giveToHuman = aiHand.pop()
 }
 
 
