@@ -74,10 +74,10 @@ const initialize = (event) => {
     // for every emoji I have, make a span and put it in the DOM
 
     for (let i = 0; i < humanHand.length; i++) {
-        let span = document.createElement('span')
-        span.innerText = humanHand[i]
-        humanHandEl.appendChild(span)
-        span.addEventListener('click', humanTurn)
+        let humanSpan = document.createElement('span')
+        humanSpan.innerText = humanHand[i]
+        humanHandEl.appendChild(humanSpan)
+        humanSpan.addEventListener('click', humanTurn)
     }
 
     //console.log(fillHumanHand);
@@ -134,33 +134,35 @@ const drawEmoji = () => {
 }
 
 // function for human to receive another emoji
-// player clicks on fishbowl, an emoji is depleted from fishbowl and added to player's emojis
+// an emoji is depleted from fishbowl and added to player's emojis
 // if it is requested emoji, player gets it and goes again
 // else if it is not requested emoji, player gets it and ai requests emoji from player
 // if any player has nothing in hand, they must receive an emoji
 // math.random, math.floor, for loop for emojis
 // must append messages to console
-const goFish = (event) => {
-    drawEmoji()
-    if (randomEmoji != chosenEmoji) {
-        return (`You did not get a ${randomEmoji} 😊 it is ai's turn`, goFish)
-    } else {
-        return (`Oh look 🎆 you drew a ${randomEmoji} you get to go again 🎉`, humanTurn)
-    }
+// way to pull the return out of drawEmoji
+const goFish = () => {
+
+    // how to apply returned emoji randomEmoji possible return?
+    let drawnEmoji = drawEmoji() // how to use returned emoji
+        //console.log(drawnEmoji)
+        // add emoji to state variable humanHand
+    humanHand.push(drawnEmoji)
+        // create span and add to humanHandEl
+    let humanSpan = document.createElement('span')
+    humanSpan.innerText = drawnEmoji
+    humanHandEl.appendChild(humanSpan)
+
+    //let playerRequestedEmoji = event.target.innerText
+
+    // if (drawnEmoji != playerRequestedEmoji) {
+    //     console.log(`You did not get a ${drawnEmoji} 😊 it is ai's turn`)
+    // } else {
+    //     console.log(`Oh look 🎆 you drew a ${drawnEmoji} you get to go again 🎉`)
+    // }
+    aiTurn()
 
 }
-
-
-// function for ai requesting emoji
-// choosing a span object
-// humand hand .contains
-// if nay go fish
-// else here
-// const aiEmojiRequest = () => {
-//     for (i = 0; i < aiHand.length; i++) {
-//         if ()
-//     }
-// }
 
 
 // function for human to request emoji
@@ -171,37 +173,55 @@ const goFish = (event) => {
 // else go fish
 const humanTurn = (event) => {
     let chosenEmoji = event.target.innerText
-    console.log(chosenEmoji);
-    let callsIt = aiHandEl.contains(chosenEmoji)
-    console.log(callsIt);
-    // if (callsIt != true) {
-    //     return (`No, go fish 🎣`, goFish)
-    // } else {
-    //     return (`Yes, here you go 🐠`)
-    // }
+        //console.log(chosenEmoji);
+    let callsIt = aiHand.includes(chosenEmoji)
+        //console.log(callsIt);
+    if (callsIt != true) {
+        let messages = document.createElement('span')
+        messages.innerText = (`No, go fish 🎣`)
+        messagesEl.appendChild(messages)
+        goFish()
+    } else {
+        let messages = document.createElement('span')
+        messages.innerText = (`Yes, here you go 🐠`)
+        messagesEl.appendChild(messages)
+            //aiHandGive()
+
+    }
+
     // code to humanTurn again
 
+}
+
+// function for ai requesting emoji
+// choosing a span object
+// humand hand .contains
+// if nay go fish
+// else here
+// function for what happens when it is ai's turn
+// ai requests emoji, humanHand gives it up/tells ai to goFish (automatic process)
+// game reverts to human's turn
+// must append messages to console
+const aiTurn = () => {
+    for (i = 0; i < aiHand.length; i++) {
+
+    }
 }
 
 // Function to have emoji move from humanHandEl to aiHandEl
 // take from humanHand 
 // add to aiHand
 const humanHandGive = () => {
+    let giveToAi =
 
 }
 
 
 // Function to have emoji move from aiHandEl to humanHandEl
-
-
-
-// function for what happens when it is ai's turn
-// ai requests emoji, humanHand gives it up/tells ai to goFish (automatic process)
-// game reverts to human's turn
-// must append messages to console
-const aiTurn = () => {
-
+const aiHandGive = () => {
+    let giveToHuman =
 }
+
 
 // function for what happens when human wins
 // gameplay is ceased
@@ -229,8 +249,3 @@ fishbowlEl.addEventListener('click', goFish)
 
 // reset click - this restarts the game
 resetButtonEl.addEventListener('click', initialize)
-
-// player hand click - this selects emoji user is requesting
-humanHandEl.addEventListener('click', goFish)
-
-//

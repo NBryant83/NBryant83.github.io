@@ -6,13 +6,22 @@ main {
     display: flex;
     justify-content: center;
     border: 1px solid mediumorchid;
-    width: 100%;
+    width: 50%;
+}
+
+#fishbowl {
+    width: 50%;
+    justify-self: flex-start;
 }
 
 .side-sections {
     display: flex;
     height: 400px;
     justify-content: space-between;
+}
+
+#center-div {
+    display: flex;
 }
 
 div {
