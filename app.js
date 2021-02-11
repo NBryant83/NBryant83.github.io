@@ -32,6 +32,7 @@ const humanHandEl = document.querySelector('#human-hand')
 // ai hand
 const aiHandEl = document.querySelector('#ai-hand')
 
+
 /* Functions and Game Logic */
 // function to start game
 // fishbowl is full
@@ -43,6 +44,8 @@ const aiHandEl = document.querySelector('#ai-hand')
 // show instructions in console div
 // fill player emoji sections
 const initialize = (event) => {
+    clearDom()
+
     humanHand = []
     aiHand = []
     fishbowl = []
@@ -58,18 +61,57 @@ const initialize = (event) => {
         humanHand.push(drawEmoji())
         aiHand.push(drawEmoji())
     }
+
     // appendChild to show instructions in messagesEl
+    let instructions = document.createElement('h2');
+    instructions.innerText = 'This is where the instructions go';
+    messagesEl.appendChild(instructions);
 
+    //console.log(instructions);
 
+    // appendChild to fill in humanHandEl
+    // how to populate from humanHand
+    // for every emoji I have, make a span and put it in the DOM
 
-    // appendChild to fill in emoji sections
+    for (let i = 0; i < humanHand.length; i++) {
+        let span = document.createElement('span')
+        span.innerText = humanHand[i]
+        humanHandEl.appendChild(span)
+        span.addEventListener('click', humanTurn)
+    }
 
+    //console.log(fillHumanHand);
+
+    // appendChild to fill in aiHandEl
+    // how to populate from aiHand
+    for (let i = 0; i < aiHand.length; i++) {
+        let aiSpan = document.createElement('span')
+        aiSpan.innerText = aiHand[i]
+        aiHandEl.appendChild(aiSpan)
+
+    }
 
     // function to clear messages in console
     // clearMessages();
 
     // console.log(fishbowl);
     // console.log('initialize');
+}
+
+// this function clears all words and emojis from the DOM
+const clearDom = () => {
+    clearMessages()
+    clearEmojis()
+}
+
+// function to clear the emojis
+const clearEmojis = () => {
+    while (humanHandEl.firstChild) {
+        humanHandEl.removeChild(humanHandEl.firstChild)
+    }
+    while (aiHandEl.firstChild) {
+        aiHandEl.removeChild(aiHandEl.firstChild)
+    }
 }
 
 // function to clear the messages display
@@ -99,14 +141,65 @@ const drawEmoji = () => {
 // math.random, math.floor, for loop for emojis
 // must append messages to console
 const goFish = (event) => {
+    drawEmoji()
+    if (randomEmoji != chosenEmoji) {
+        return (`You did not get a ${randomEmoji} 😊 it is ai's turn`, goFish)
+    } else {
+        return (`Oh look 🎆 you drew a ${randomEmoji} you get to go again 🎉`, humanTurn)
+    }
 
 }
+
+
+// function for ai requesting emoji
+// choosing a span object
+// humand hand .contains
+// if nay go fish
+// else here
+// const aiEmojiRequest = () => {
+//     for (i = 0; i < aiHand.length; i++) {
+//         if ()
+//     }
+// }
+
+
+// function for human to request emoji
+// when click on span, function runs to choose emoji
+// generates a request to ai for chosen emoji
+// if aiHand.contains chosen emoji
+// if the emojis go from ai hand to human hand 
+// else go fish
+const humanTurn = (event) => {
+    let chosenEmoji = event.target.innerText
+    console.log(chosenEmoji);
+    let callsIt = aiHandEl.contains(chosenEmoji)
+    console.log(callsIt);
+    // if (callsIt != true) {
+    //     return (`No, go fish 🎣`, goFish)
+    // } else {
+    //     return (`Yes, here you go 🐠`)
+    // }
+    // code to humanTurn again
+
+}
+
+// Function to have emoji move from humanHandEl to aiHandEl
+// take from humanHand 
+// add to aiHand
+const humanHandGive = () => {
+
+}
+
+
+// Function to have emoji move from aiHandEl to humanHandEl
+
+
 
 // function for what happens when it is ai's turn
 // ai requests emoji, humanHand gives it up/tells ai to goFish (automatic process)
 // game reverts to human's turn
 // must append messages to console
-const aiTurn = (event) => {
+const aiTurn = () => {
 
 }
 
@@ -139,3 +232,5 @@ resetButtonEl.addEventListener('click', initialize)
 
 // player hand click - this selects emoji user is requesting
 humanHandEl.addEventListener('click', goFish)
+
+//
