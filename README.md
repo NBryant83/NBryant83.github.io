@@ -17,7 +17,7 @@ The game is won by whoever has matched and run out of emojis by the time the fis
 ## User Stories
 When the page loads, there is a game board with three sections. The left and the right are where the user and computers emojis will be, and the middle sections has a 'Reset' button, the fishpile, and a message area.
 When the page loads, the game starts and 5 emojis are dealt to me and the computer from the fishpile
-I can see the emojis I have on hand
+I can see the emojis I have on hand and can't see the comp's
 I can click on one of my emojis to request all of the computer's matching emojis
 If computer has it, I get it and am able to request another
 If computer doesn't have it, I have to click on the fishbowl to get another emoji

@@ -84,10 +84,13 @@ const initialize = (event) => {
 
     // appendChild to fill in aiHandEl
     // how to populate from aiHand
+    // not supposed to be visible
     for (let i = 0; i < aiHand.length; i++) {
         let aiSpan = document.createElement('span')
         aiSpan.innerText = aiHand[i]
         aiHandEl.appendChild(aiSpan)
+            // need to make and append representation for comp's emojis
+            // aiSpan.style.visibility = 'hidden';
 
     }
 
@@ -152,6 +155,7 @@ const goFish = () => {
     let humanSpan = document.createElement('span')
     humanSpan.innerText = drawnEmoji
     humanHandEl.appendChild(humanSpan)
+    humanSpan.addEventListener('click', humanTurn)
 
     //let playerRequestedEmoji = event.target.innerText
 
@@ -179,14 +183,33 @@ const humanTurn = (event) => {
     if (callsIt != true) {
         let messages = document.createElement('span')
         messages.innerText = (`No, go fish 🎣`)
+        clearMessages()
         messagesEl.appendChild(messages)
         goFish()
+
     } else {
         let messages = document.createElement('span')
-        messages.innerText = (`Yes, here you go 🐠`)
+        messages.innerText = (`Yes, here you go ${chosenEmoji}`)
+        clearMessages()
         messagesEl.appendChild(messages)
             //aiHandGive()
-
+            // interacting with humanHand and aiHand-both arrays
+            // for every instance of chosenEmoji in aiHand need to pop from aiHand, push to humanHand
+            // array = loop-over aiHand for chosenEmoji
+        for (let i = 0; i < aiHand.length; i++) {
+            //console.log(aiHand[i])
+            if (aiHand[i] == chosenEmoji) {
+                //console.log(aiHand[i])
+                let removedEmoji = aiHand.splice(i, 1)[0]
+                    //console.log(removedEmoji)
+                let givenEmoji = humanHand.push(removedEmoji)
+                console.log(`${givenEmoji}`)
+            }
+        }
+        // splice chosenEmoji into humanHand
+        //console.log(foundEmoji == chosenEmoji)
+        // aiHand.splice(1, foundEmoji)
+        // humanHand.push(foundEmoji)
     }
 
     // code to humanTurn again
